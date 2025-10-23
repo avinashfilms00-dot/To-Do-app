@@ -1,0 +1,144 @@
+/* Reset & base */
+* { box-sizing: border-box; margin:0; padding:0; }
+body{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: linear-gradient(135deg,#7f5af0,#2cb67d);
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  padding:2rem;
+}
+
+/* App container */
+.app-container{
+  width:100%;
+  max-width:480px;
+  background:#fff;
+  border-radius:14px;
+  padding:2rem;
+  box-shadow:0 12px 40px rgba(2,6,23,0.12);
+}
+
+/* Title */
+h1 { text-align:center; margin-bottom:1.25rem; color:#111827; }
+
+/* Input row */
+.input-section{
+  display:flex;
+  gap:0.5rem;
+  margin-bottom:0.75rem;
+}
+#taskInput{
+  flex:1;
+  padding:0.65rem 0.85rem;
+  border-radius:10px;
+  border:1px solid #e6e6e9;
+  font-size:1rem;
+  outline:none;
+}
+#taskInput:focus{ box-shadow:0 0 0 3px rgba(124,58,237,0.08); border-color:#8b5cf6; }
+
+#addTaskBtn{
+  background: linear-gradient(90deg,#7f5af0,#6246ea);
+  color:#fff;
+  border:none;
+  padding:0.6rem 1rem;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:700;
+}
+
+/* Controls */
+.controls{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:0.85rem;
+}
+.counts{ color:#6b7280; font-size:0.95rem; }
+.control-buttons button{
+  margin-left:0.5rem;
+}
+
+/* Small buttons */
+.small{
+  padding:0.35rem 0.6rem;
+  border-radius:8px;
+  border:1px solid rgba(15,23,42,0.06);
+  background:#fff;
+  cursor:pointer;
+  font-size:0.85rem;
+}
+.small:hover{ transform:translateY(-1px); }
+.small.danger{ background:#fff; color:#b91c1c; border-color: rgba(185,28,28,0.12); }
+
+/* Task list */
+ul{ list-style:none; margin-top:0.5rem; max-height:420px; overflow:auto; padding-right:6px; }
+
+li{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:0.75rem;
+  padding:0.6rem 0.75rem;
+  border-radius:10px;
+  background:#f6f7fb;
+  margin-bottom:0.55rem;
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+li:hover{ transform:translateY(-2px); box-shadow:0 8px 18px rgba(2,6,23,0.04); }
+
+.task-left{
+  display:flex;
+  align-items:center;
+  gap:0.75rem;
+  flex:1;
+}
+
+/* Custom checkbox-ish */
+.checkbox{
+  width:20px;
+  height:20px;
+  border-radius:6px;
+  border:2px solid rgba(15,23,42,0.12);
+  display:inline-grid;
+  place-items:center;
+  cursor:pointer;
+  background:#fff;
+}
+.checkbox.checked{
+  background: linear-gradient(90deg,#7f5af0,#6246ea);
+  border-color:transparent;
+  color:white;
+  font-size:14px;
+}
+
+/* Task text */
+.task-text{
+  cursor:pointer;
+  user-select:none;
+  word-break:break-word;
+}
+li.completed .task-text{
+  text-decoration:line-through;
+  color:#6b7280;
+}
+
+/* Remove button */
+.btn-remove{
+  background:#ef4444;
+  color:#fff;
+  border:none;
+  padding:0.35rem 0.55rem;
+  border-radius:8px;
+  cursor:pointer;
+}
+.btn-remove:hover{ opacity:0.95; transform:translateY(-1px); }
+
+/* Responsive tweaks */
+@media (max-width:420px){
+  .app-container{ padding:1.25rem; }
+  #addTaskBtn{ padding:0.55rem 0.8rem; }
+  .counts{ font-size:0.85rem; }
+}
